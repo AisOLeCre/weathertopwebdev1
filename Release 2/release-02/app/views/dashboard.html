@@ -1,0 +1,57 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+#{list items: stations, as:'station'}
+<section class="box">
+  <div class="content box ">
+    <h1 class="title">
+      ${station.name}
+    </h1>
+    <p>
+
+      <a href="/stations/${station.id}" class="icon has-text-success">
+        <i class="fas fa-folder"></i>
+      </a>
+      <a href="/dashboard/deleteStation/${station.id}" class="icon has-text-danger">
+        <i class="fas fa-trash"></i>
+      </a>
+    </p>
+  </div>
+
+</section>
+#{/list}
+<form action="/dashboard/addstation" method="POST">
+  <div class="columns">
+    <div class="field column">
+      <label class="label">Location</label>
+      <div class="control">
+        <input class="input" placeholder="Where?" type="text" name="Location">
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Latitude</label>
+      <div class="control">
+        <input class="input" placeholder="Latitude" type="float" name="Latitude">
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Longitude</label>
+      <div class="control">
+        <input class="input" placeholder="Latitude" type="float" name="Longitude">
+      </div>
+    </div>
+    <div class="field mt-4">
+      <div class="control">
+        <button class="button is-success">Add Station</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+#{addstation /}
+
+
+
