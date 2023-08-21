@@ -1,0 +1,38 @@
+<div class ="content box ">
+    <div class="tile is-ancestor ">
+        <div class="tile is-parent ">
+            <article class="tile is-child is-dark box is-primary"> <!--why won't colour work here?-->
+                <p class="is-size-4-desktop has-text-left-desktop has-text-weight-bold"> ${_station.name}</p>
+                <p class="subtitle"> </p>
+            </article>
+        </div>
+        <div class="tile is-parent ">
+            <article class="tile is-child box ">
+                <p class="is-size-4-desktop has-text-left-desktop has-text-weight-bold">Weather</p>
+                <p class="content">${_station.readings.get(_station.readings.size()-1).getWeatherCode()}</p>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+                <p class="is-size-4-desktop has-text-left-desktop has-text-weight-bold">Temp</p>
+                <p class="content">${_station.readings.get(_station.readings.size()-1).getFahrenheit()}F <br> ${_station.readings.get(_station.readings.size()-1).getTemperature()} C </p>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+                <p class="is-size-4-desktop has-text-left-desktop has-text-weight-bold">Wind</p>
+                <p class="content">${_station.readings.get(_station.readings.size()-1).getBeaufort()} bft </p>
+                <p class="content"><strong>Dir:</strong> ${_station.readings.get(_station.readings.size()-1).getWindCompass()}  </p>
+                <p class ="content"><strong>Feels like:</strong> ${_station.readings.get(_station.readings.size()-1).getWindChill()} </p>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+                <p class="is-size-4-desktop has-text-left-desktop has-text-weight-bold">Pressure</p>
+                <p class="content">${_station.readings.get(_station.readings.size()-1).pressure} h/PA</p>
+            </article>
+        </div>
+    </div>
+</div>
+
+<!--Issue: can't get the wind compass reading through from Reading-->
